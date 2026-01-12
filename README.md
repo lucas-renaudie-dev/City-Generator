@@ -6,4 +6,4 @@ Also includes a duplicator tool to create copies of generations, with many usefu
 
 Try out the city generator by downloading the script below!
 
-[City Generator](https://github.com/lucas-renaudie-dev/City-Generator/project_Final.py)
+[City Generator](https://github.com/lucas-renaudie-dev/City-Generator/blob/main/project_Final.py)
