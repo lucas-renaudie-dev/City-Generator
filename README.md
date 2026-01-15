@@ -1,3 +1,5 @@
+# Maya Python City Generator
+
 A <strong>Python</strong> script that generates a UI in <strong>Autodesk Maya</strong> to create city layouts. 
 The generator features numerous parameters such as building shape, number of buildings, spacing, building sizes and many more, allowing them to 
 generate all kinds of environments, including buildings, cities, rain, snow, grass, etc.
