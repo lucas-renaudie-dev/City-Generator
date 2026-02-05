@@ -249,6 +249,7 @@ gen_checkbox_dup_indiv_dup = {}
 gen_checkbox_dup_indiv_block = {}
 gen_checkbox_dup_indiv_building = {}
 
+gen_checkbox_dup_scale_add = {}
 gen_checkbox_dup_scale_mult = {}
 gen_slider_dup_size = {}
 gen_slider_dup_scaleX = {}
@@ -2504,6 +2505,16 @@ def create_generation_tab(gen_num):
 
     cmds.rowLayout(numberOfColumns=3, columnWidth3=(101, 200, 150))
     cmds.separator(style="none")   # left empty space
+    gen_checkbox_dup_scale_add[gen_num] = cmds.checkBox(
+        label="Set Scale to Additive Offset",
+        value=False,
+        changeCommand=lambda v, g=gen_num: dup_additive_scale(g, v),
+    )
+    cmds.separator(style="none")
+    cmds.setParent('..')
+
+    cmds.rowLayout(numberOfColumns=3, columnWidth3=(101, 200, 150))
+    cmds.separator(style="none")   # left empty space
     gen_checkbox_dup_scale_mult[gen_num] = cmds.checkBox(
         label="Set Scale to Multiplicative Offset",
         value=False,
@@ -3008,7 +3019,7 @@ def reset_duplicate_settings(gen_num):
     cmds.checkBox(gen_checkbox_dup_indiv_block[gen_num], e=True, value=False)
     cmds.checkBox(gen_checkbox_dup_indiv_building[gen_num], e=True, value=False)
 
-    #cmds.checkBox(gen_checkbox_dup_scale_add[gen_num], e=True, value=False)
+    cmds.checkBox(gen_checkbox_dup_scale_add[gen_num], e=True, value=False)
     cmds.checkBox(gen_checkbox_dup_scale_mult[gen_num], e=True, value=False)
     cmds.floatSliderGrp(gen_slider_dup_size[gen_num],  e=True, value=1)
     cmds.floatSliderGrp(gen_slider_dup_scaleX[gen_num], e=True, value=1)
@@ -3112,6 +3123,10 @@ def duplicate(gen_num, *args):
     rotY = gen_settings[gen_num]["rot_y"]
     rotZ = gen_settings[gen_num]["rot_z"]
 
+    offset = gen_settings[gen_num]["size"] - 1
+    offsetX = gen_settings[gen_num]["scale_x"] - 1
+    offsetY = gen_settings[gen_num]["scale_y"] - 1
+    offsetZ = gen_settings[gen_num]["scale_z"] - 1
 
     pivot_pos = cmds.xform(g, q=True, ws=True, rp=True)  # "rp" = rotate pivot
     #cmds.xform(g, cp=True) # moves both rotate and scale pivots
@@ -3358,12 +3373,12 @@ def duplicate(gen_num, *args):
             scaleY *= gen_settings[gen_num]["scale_y"]
             scaleZ *= gen_settings[gen_num]["scale_z"]
 
-        #TODO: !!!
-        if (gen_settings[gen_num]["additive_scale"]): 
-            size_offset = 1 - gen_settings[gen_num]["size"]
-            scale_x_offset = 1 - gen_settings[gen_num]["scale_x"]
-            scale_y_offset = 1 - gen_settings[gen_num]["scale_y"]
-            scale_z_offset = 1 - gen_settings[gen_num]["scale_z"]
+        if (gen_settings[gen_num]["additive_scale"]):
+            print("additive scale")
+            size += offset
+            scaleX += offsetX
+            scaleY += offsetY
+            scaleZ += offsetZ
 
         if (gen_settings[gen_num]["additive_rotate"]):
             rotX += gen_settings[gen_num]["rot_x"]
