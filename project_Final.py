@@ -4299,6 +4299,7 @@ def set_max_tran_X(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_min_tran_X = cmds.floatSliderGrp(
     label="Building Min Translate (X)",
     field=True,
@@ -4307,7 +4308,10 @@ slider_min_tran_X = cmds.floatSliderGrp(
     value=min_tran_X,
     changeCommand=set_min_tran_X
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_min_tran_X, 0, set_min_tran_X), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_max_tran_X = cmds.floatSliderGrp(
     label="Building Max Translate (X)",
     field=True,
@@ -4316,6 +4320,8 @@ slider_max_tran_X = cmds.floatSliderGrp(
     value=max_tran_X,
     changeCommand=set_max_tran_X
 )   
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_max_tran_X, 0, set_max_tran_X), height=20) #new
+cmds.setParent("..")  #new
 
 def set_min_tran_Y(value):
     global min_tran_Y
@@ -4339,6 +4345,7 @@ def set_max_tran_Y(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_min_tran_Y = cmds.floatSliderGrp(
     label="Building Min Translate (Y)",
     field=True,
@@ -4347,7 +4354,10 @@ slider_min_tran_Y = cmds.floatSliderGrp(
     value=min_tran_Y,
     changeCommand=set_min_tran_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_min_tran_Y, 0, set_min_tran_Y), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_max_tran_Y = cmds.floatSliderGrp(
     label="Building Max Translate (Y)",
     field=True,
@@ -4356,6 +4366,8 @@ slider_max_tran_Y = cmds.floatSliderGrp(
     value=max_tran_Y,
     changeCommand=set_max_tran_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_max_tran_Y, 0, set_max_tran_Y), height=20) #new
+cmds.setParent("..")  #new
 
 def set_min_tran_Z(value):
     global min_tran_Z
@@ -4379,6 +4391,7 @@ def set_max_tran_Z(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_min_tran_Z = cmds.floatSliderGrp(
     label="Building Min Translate (Z)",
     field=True,
@@ -4387,7 +4400,10 @@ slider_min_tran_Z = cmds.floatSliderGrp(
     value=min_tran_Z,
     changeCommand=set_min_tran_Z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_min_tran_Z, 0, set_min_tran_Z), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_max_tran_Z = cmds.floatSliderGrp(
     label="Building Max Translate (Z)",
     field=True,
@@ -4396,6 +4412,8 @@ slider_max_tran_Z = cmds.floatSliderGrp(
     value=max_tran_Z,
     changeCommand=set_max_tran_Z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_max_tran_Z, 0, set_max_tran_Z), height=20) #new
+cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout (sub-tab)
 
@@ -4430,6 +4448,7 @@ def set_max_rot_X(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_min_rot_X = cmds.floatSliderGrp(
     label="Building Min Rotation (X)",
     field=True,
@@ -4438,7 +4457,10 @@ slider_min_rot_X = cmds.floatSliderGrp(
     value=min_rot_X,
     changeCommand=set_min_rot_X
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_min_rot_X, 0, set_min_rot_X), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_max_rot_X = cmds.floatSliderGrp(
     label="Building Max Rotation (X)",
     field=True,
@@ -4447,6 +4469,8 @@ slider_max_rot_X = cmds.floatSliderGrp(
     value=max_rot_X,
     changeCommand=set_max_rot_X
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_max_rot_X, 0, set_max_rot_X), height=20) #new
+cmds.setParent("..")  #new
 
 def set_min_rot_Y(value):
     global min_rot_Y
@@ -4470,6 +4494,7 @@ def set_max_rot_Y(value):
 
     set_undo_redo_and_generate()  
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_min_rot_Y = cmds.floatSliderGrp(
     label="Building Min Rotation (Y)",
     field=True,
@@ -4478,7 +4503,10 @@ slider_min_rot_Y = cmds.floatSliderGrp(
     value=min_rot_Y,
     changeCommand=set_min_rot_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_min_rot_Y, 0, set_min_rot_Y), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_max_rot_Y = cmds.floatSliderGrp(
     label="Building Max Rotation (Y)",
     field=True,
@@ -4487,6 +4515,8 @@ slider_max_rot_Y = cmds.floatSliderGrp(
     value=max_rot_Y,
     changeCommand=set_max_rot_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_max_rot_Y, 0, set_max_rot_Y), height=20) #new
+cmds.setParent("..")  #new
 
 def set_min_rot_Z(value):
     global min_rot_Z
@@ -4510,6 +4540,7 @@ def set_max_rot_Z(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_min_rot_Z = cmds.floatSliderGrp(
     label="Building Min Rotation (Z)",
     field=True,
@@ -4518,7 +4549,10 @@ slider_min_rot_Z = cmds.floatSliderGrp(
     value=min_rot_Z,
     changeCommand=set_min_rot_Z
 )        
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_min_rot_Z, 0, set_min_rot_Z), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_max_rot_Z = cmds.floatSliderGrp(
     label="Building Max Rotation (Z)",
     field=True,
@@ -4527,6 +4561,8 @@ slider_max_rot_Z = cmds.floatSliderGrp(
     value=max_rot_Z,
     changeCommand=set_max_rot_Z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_max_rot_Z, 0, set_max_rot_Z), height=20) #new
+cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout
 cmds.setParent('..')  # end frameLayout (tab)
@@ -4565,6 +4601,7 @@ def set_min_num_buildings(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_min_num_buildings = cmds.intSliderGrp(
     label="Min Number of Buildings",
     field=True,
@@ -4573,6 +4610,8 @@ slider_min_num_buildings = cmds.intSliderGrp(
     value=min_num_buildings,
     changeCommand=set_min_num_buildings
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_min_num_buildings, 16, set_min_num_buildings), height=20) #new
+cmds.setParent("..")  #new
 
 def set_max_num_buildings(value):
     global max_num_buildings
@@ -4586,6 +4625,7 @@ def set_max_num_buildings(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_max_num_buildings = cmds.intSliderGrp(
     label="Max Number of Buildings",
     field=True,
@@ -4594,6 +4634,8 @@ slider_max_num_buildings = cmds.intSliderGrp(
     value=max_num_buildings,
     changeCommand=set_max_num_buildings
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_max_num_buildings, 200, set_max_num_buildings), height=20) #new
+cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout
 
@@ -4619,6 +4661,7 @@ def set_num_blocks_z(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_num_blocks_x = cmds.intSliderGrp(
     label="Number of Blocks (X)",
     field=True,
@@ -4627,7 +4670,10 @@ slider_num_blocks_x = cmds.intSliderGrp(
     value=num_blocks_x,
     changeCommand=set_num_blocks_x
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_num_blocks_x, 3, set_num_blocks_x), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_num_blocks_z = cmds.intSliderGrp(
     label="Number of Blocks (Z)",
     field=True,
@@ -4636,6 +4682,8 @@ slider_num_blocks_z = cmds.intSliderGrp(
     value=num_blocks_z,
     changeCommand=set_num_blocks_z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_num_blocks_z, 3, set_num_blocks_z), height=20) #new
+cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout
 
@@ -4662,6 +4710,7 @@ def set_subdiv_h(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_subdiv_w = cmds.intSliderGrp(
     label="Building Spawns (X)",
     field=True,
@@ -4670,7 +4719,10 @@ slider_subdiv_w = cmds.intSliderGrp(
     value=subdiv_w,
     changeCommand=set_subdiv_w
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_subdiv_w, 4, set_subdiv_w), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_subdiv_h = cmds.intSliderGrp(
     label="Building Spawns (Z)",
     field=True,
@@ -4679,6 +4731,8 @@ slider_subdiv_h = cmds.intSliderGrp(
     value=subdiv_h,
     changeCommand=set_subdiv_h
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_subdiv_h, 4, set_subdiv_h), height=20) #new
+cmds.setParent("..")  #new
 
 def set_block_size_x(value):
     global block_size_X
@@ -4692,6 +4746,7 @@ def set_block_size_z(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_size_x = cmds.floatSliderGrp(
     label="Block Base Size (X)",
     field=True,
@@ -4700,7 +4755,10 @@ slider_block_size_x = cmds.floatSliderGrp(
     value=block_size_X,
     changeCommand=set_block_size_x
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_size_x, 33, set_block_size_x), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_size_z = cmds.floatSliderGrp(
     label="Block Base Size (Z)",
     field=True,
@@ -4709,6 +4767,8 @@ slider_block_size_z = cmds.floatSliderGrp(
     value=block_size_Z,
     changeCommand=set_block_size_z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_size_z, 33, set_block_size_z), height=20) #new
+cmds.setParent("..")  #new
 
 #space between blocks
 def set_space_between_blocks_x(value):
@@ -4723,6 +4783,7 @@ def set_space_between_blocks_z(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_space_between_blocks_x = cmds.floatSliderGrp(
     label="Space Between Blocks (X)",
     field=True,
@@ -4731,7 +4792,10 @@ slider_space_between_blocks_x = cmds.floatSliderGrp(
     value=space_between_blocks_X,
     changeCommand=set_space_between_blocks_x
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_space_between_blocks_x, 12, set_space_between_blocks_x), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_space_between_blocks_z = cmds.floatSliderGrp(
     label="Space Between Blocks (Z)",
     field=True,
@@ -4740,6 +4804,8 @@ slider_space_between_blocks_z = cmds.floatSliderGrp(
     value=space_between_blocks_Z,
     changeCommand=set_space_between_blocks_z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_space_between_blocks_z, 12, set_space_between_blocks_z), height=20) #new
+cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout (sub tab)
 cmds.setParent('..')  # end frameLayout (sub tab)
@@ -4788,6 +4854,7 @@ def set_block_max_size(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_min_size = cmds.floatSliderGrp(
     label="Block Min Size",
     field=True,
@@ -4796,7 +4863,10 @@ slider_block_min_size = cmds.floatSliderGrp(
     value=block_min_size,
     changeCommand=set_block_min_size
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_min_size, 1, set_block_min_size), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_max_size = cmds.floatSliderGrp(
     label="Block Max Size",
     field=True,
@@ -4804,7 +4874,9 @@ slider_block_max_size = cmds.floatSliderGrp(
     maxValue=50,
     value=block_max_size,
     changeCommand=set_block_max_size
-)   
+)
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_max_size, 1, set_block_max_size), height=20) #new
+cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout (sub tab)
 
@@ -4839,6 +4911,7 @@ def set_block_max_scale_X(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_min_scale_X = cmds.floatSliderGrp(
     label="Block Min Scale (X)",
     field=True,
@@ -4847,7 +4920,10 @@ slider_block_min_scale_X = cmds.floatSliderGrp(
     value=block_min_scale_X,
     changeCommand=set_block_min_scale_X
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_min_scale_X, 1, set_block_min_scale_X), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_max_scale_X = cmds.floatSliderGrp(
     label="Block Max Scale (X)",
     field=True,
@@ -4856,6 +4932,8 @@ slider_block_max_scale_X = cmds.floatSliderGrp(
     value=block_max_scale_X,
     changeCommand=set_block_max_scale_X
 )   
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_max_scale_X, 1, set_block_max_scale_X), height=20) #new
+cmds.setParent("..")  #new
 
 def set_block_min_scale_Y(value):
     global block_min_scale_Y
@@ -4879,6 +4957,7 @@ def set_block_max_scale_Y(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_min_scale_Y = cmds.floatSliderGrp(
     label="Block Min Scale (Y)",
     field=True,
@@ -4887,7 +4966,10 @@ slider_block_min_scale_Y = cmds.floatSliderGrp(
     value=block_min_scale_Y,
     changeCommand=set_block_min_scale_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_min_scale_Y, 1, set_block_min_scale_Y), height=20) #new  
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_max_scale_Y = cmds.floatSliderGrp(
     label="Block Max Scale (Y)",
     field=True,
@@ -4896,6 +4978,8 @@ slider_block_max_scale_Y = cmds.floatSliderGrp(
     value=block_max_scale_Y,
     changeCommand=set_block_max_scale_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_max_scale_Y, 1, set_block_max_scale_Y), height=20) #new
+cmds.setParent("..")  #new
 
 def set_block_min_scale_Z(value):
     global block_min_scale_Z
@@ -4919,6 +5003,7 @@ def set_block_max_scale_Z(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_min_scale_Z = cmds.floatSliderGrp(
     label="Block Min Scale (Z)",
     field=True,
@@ -4927,7 +5012,10 @@ slider_block_min_scale_Z = cmds.floatSliderGrp(
     value=block_min_scale_Z,
     changeCommand=set_block_min_scale_Z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_min_scale_Z, 1, set_block_min_scale_Z), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_max_scale_Z = cmds.floatSliderGrp(
     label="Block Max Scale (Z)",
     field=True,
@@ -4936,6 +5024,8 @@ slider_block_max_scale_Z = cmds.floatSliderGrp(
     value=block_max_scale_Z,
     changeCommand=set_block_max_scale_Z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_max_scale_Z, 1, set_block_max_scale_Z), height=20) #new
+cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout (sub-tab)
 
@@ -4970,6 +5060,7 @@ def set_block_max_tran_X(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_min_tran_X = cmds.floatSliderGrp(
     label="Block Min Translate (X)",
     field=True,
@@ -4978,7 +5069,10 @@ slider_block_min_tran_X = cmds.floatSliderGrp(
     value=block_min_tran_X,
     changeCommand=set_block_min_tran_X
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_min_tran_X, 0, set_block_min_tran_X), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_max_tran_X = cmds.floatSliderGrp(
     label="Block Max Translate (X)",
     field=True,
@@ -4987,6 +5081,8 @@ slider_block_max_tran_X = cmds.floatSliderGrp(
     value=block_max_tran_X,
     changeCommand=set_block_max_tran_X
 )   
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_max_tran_X, 0, set_block_max_tran_X), height=20) #new
+cmds.setParent("..")  #new
 
 def set_block_min_tran_Y(value):
     global block_min_tran_Y
@@ -5010,6 +5106,7 @@ def set_block_max_tran_Y(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_min_tran_Y = cmds.floatSliderGrp(
     label="Block Min Translate (Y)",
     field=True,
@@ -5018,7 +5115,10 @@ slider_block_min_tran_Y = cmds.floatSliderGrp(
     value=block_min_tran_Y,
     changeCommand=set_block_min_tran_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_min_tran_Y, 0, set_block_min_tran_Y), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_max_tran_Y = cmds.floatSliderGrp(
     label="Block Max Translate (Y)",
     field=True,
@@ -5027,6 +5127,8 @@ slider_block_max_tran_Y = cmds.floatSliderGrp(
     value=block_max_tran_Y,
     changeCommand=set_block_max_tran_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_max_tran_Y, 0, set_block_max_tran_Y), height=20) #new
+cmds.setParent("..")  #new
 
 def set_block_min_tran_Z(value):
     global block_min_tran_Z
@@ -5050,6 +5152,7 @@ def set_block_max_tran_Z(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_min_tran_Z = cmds.floatSliderGrp(
     label="Block Min Translate (Z)",
     field=True,
@@ -5058,7 +5161,10 @@ slider_block_min_tran_Z = cmds.floatSliderGrp(
     value=block_min_tran_Z,
     changeCommand=set_block_min_tran_Z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_min_tran_Z, 0, set_block_min_tran_Z), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_max_tran_Z = cmds.floatSliderGrp(
     label="Block Max Translate (Z)",
     field=True,
@@ -5067,6 +5173,8 @@ slider_block_max_tran_Z = cmds.floatSliderGrp(
     value=block_max_tran_Z,
     changeCommand=set_block_max_tran_Z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_max_tran_Z, 0, set_block_max_tran_Z), height=20) #new
+cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout (sub-tab)
 
@@ -5101,6 +5209,7 @@ def set_block_max_rot_X(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_min_rot_X = cmds.floatSliderGrp(
     label="Block Min Rotation (X)",
     field=True,
@@ -5109,7 +5218,10 @@ slider_block_min_rot_X = cmds.floatSliderGrp(
     value=block_min_rot_X,
     changeCommand=set_block_min_rot_X
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_min_rot_X, 0, set_block_min_rot_X), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_max_rot_X = cmds.floatSliderGrp(
     label="Block Max Rotation (X)",
     field=True,
@@ -5118,6 +5230,8 @@ slider_block_max_rot_X = cmds.floatSliderGrp(
     value=block_max_rot_X,
     changeCommand=set_block_max_rot_X
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_max_rot_X, 0, set_block_max_rot_X), height=20) #new
+cmds.setParent("..")  #new
 
 def set_block_min_rot_Y(value):
     global block_min_rot_Y
@@ -5141,6 +5255,7 @@ def set_block_max_rot_Y(value):
 
     set_undo_redo_and_generate() 
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_min_rot_Y = cmds.floatSliderGrp(
     label="Block Min Rotation (Y)",
     field=True,
@@ -5149,7 +5264,10 @@ slider_block_min_rot_Y = cmds.floatSliderGrp(
     value=block_min_rot_Y,
     changeCommand=set_block_min_rot_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_min_rot_Y, 0, set_block_min_rot_Y), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_max_rot_Y = cmds.floatSliderGrp(
     label="Block Max Rotation (Y)",
     field=True,
@@ -5158,6 +5276,8 @@ slider_block_max_rot_Y = cmds.floatSliderGrp(
     value=block_max_rot_Y,
     changeCommand=set_block_max_rot_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_max_rot_Y, 0, set_block_max_rot_Y), height=20) #new
+cmds.setParent("..")  #new
 
 def set_block_min_rot_Z(value):
     global block_min_rot_Z
@@ -5181,6 +5301,7 @@ def set_block_max_rot_Z(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_min_rot_Z = cmds.floatSliderGrp(
     label="Block Min Rotation (Z)",
     field=True,
@@ -5188,8 +5309,11 @@ slider_block_min_rot_Z = cmds.floatSliderGrp(
     maxValue=180,
     value=block_min_rot_Z,
     changeCommand=set_block_min_rot_Z
-)        
+)  
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_min_rot_Z, 0, set_block_min_rot_Z), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_block_max_rot_Z = cmds.floatSliderGrp(
     label="Block Max Rotation (Z)",
     field=True,
@@ -5198,6 +5322,8 @@ slider_block_max_rot_Z = cmds.floatSliderGrp(
     value=block_max_rot_Z,
     changeCommand=set_block_max_rot_Z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_block_max_rot_Z, 0, set_block_max_rot_Z), height=20) #new
+cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout
 cmds.setParent('..')  # end frameLayout (tab)
@@ -5246,6 +5372,7 @@ def set_global_max_size(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_min_size = cmds.floatSliderGrp(
     label="Global Min Size",
     field=True,
@@ -5254,7 +5381,10 @@ slider_global_min_size = cmds.floatSliderGrp(
     value=global_min_size,
     changeCommand=set_global_min_size
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_min_size, 1, set_global_min_size), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_max_size = cmds.floatSliderGrp(
     label="Global Max Size",
     field=True,
@@ -5263,6 +5393,8 @@ slider_global_max_size = cmds.floatSliderGrp(
     value=global_max_size,
     changeCommand=set_global_max_size
 )   
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_max_size, 1, set_global_max_size), height=20) #new
+cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout (sub tab)
 
@@ -5297,6 +5429,7 @@ def set_global_max_scale_X(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_min_scale_X = cmds.floatSliderGrp(
     label="Global Min Scale (X)",
     field=True,
@@ -5305,7 +5438,10 @@ slider_global_min_scale_X = cmds.floatSliderGrp(
     value=global_min_scale_X,
     changeCommand=set_global_min_scale_X
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_min_scale_X, 1, set_global_min_scale_X), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_max_scale_X = cmds.floatSliderGrp(
     label="Global Max Scale (X)",
     field=True,
@@ -5314,6 +5450,8 @@ slider_global_max_scale_X = cmds.floatSliderGrp(
     value=global_max_scale_X,
     changeCommand=set_global_max_scale_X
 )   
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_max_scale_X, 1, set_global_max_scale_X), height=20) #new
+cmds.setParent("..")  #new
 
 def set_global_min_scale_Y(value):
     global global_min_scale_Y
@@ -5337,6 +5475,7 @@ def set_global_max_scale_Y(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_min_scale_Y = cmds.floatSliderGrp(
     label="Global Min Scale (Y)",
     field=True,
@@ -5345,7 +5484,10 @@ slider_global_min_scale_Y = cmds.floatSliderGrp(
     value=global_min_scale_Y,
     changeCommand=set_global_min_scale_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_min_scale_Y, 1, set_global_min_scale_Y), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_max_scale_Y = cmds.floatSliderGrp(
     label="Global Max Scale (Y)",
     field=True,
@@ -5354,6 +5496,8 @@ slider_global_max_scale_Y = cmds.floatSliderGrp(
     value=global_max_scale_Y,
     changeCommand=set_global_max_scale_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_max_scale_Y, 1, set_global_max_scale_Y), height=20) #new
+cmds.setParent("..")  #new
 
 def set_global_min_scale_Z(value):
     global global_min_scale_Z
@@ -5377,6 +5521,7 @@ def set_global_max_scale_Z(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_min_scale_Z = cmds.floatSliderGrp(
     label="Global Min Scale (Z)",
     field=True,
@@ -5385,7 +5530,10 @@ slider_global_min_scale_Z = cmds.floatSliderGrp(
     value=global_min_scale_Z,
     changeCommand=set_global_min_scale_Z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_min_scale_Z, 1, set_global_min_scale_Z), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_max_scale_Z = cmds.floatSliderGrp(
     label="Global Max Scale (Z)",
     field=True,
@@ -5394,6 +5542,8 @@ slider_global_max_scale_Z = cmds.floatSliderGrp(
     value=global_max_scale_Z,
     changeCommand=set_global_max_scale_Z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_max_scale_Z, 1, set_global_max_scale_Z), height=20) #new
+cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout (sub-tab)
 
@@ -5428,6 +5578,7 @@ def set_global_max_tran_X(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_min_tran_X = cmds.floatSliderGrp(
     label="Global Min Translate (X)",
     field=True,
@@ -5436,7 +5587,10 @@ slider_global_min_tran_X = cmds.floatSliderGrp(
     value=global_min_tran_X,
     changeCommand=set_global_min_tran_X
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_min_tran_X, 0, set_global_min_tran_X), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_max_tran_X = cmds.floatSliderGrp(
     label="Global Max Translate (X)",
     field=True,
@@ -5445,6 +5599,8 @@ slider_global_max_tran_X = cmds.floatSliderGrp(
     value=global_max_tran_X,
     changeCommand=set_global_max_tran_X
 )   
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_max_tran_X, 0, set_global_max_tran_X), height=20) #new
+cmds.setParent("..")  #new
 
 def set_global_min_tran_Y(value):
     global global_min_tran_Y
@@ -5468,6 +5624,7 @@ def set_global_max_tran_Y(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_min_tran_Y = cmds.floatSliderGrp(
     label="Global Min Translate (Y)",
     field=True,
@@ -5476,7 +5633,10 @@ slider_global_min_tran_Y = cmds.floatSliderGrp(
     value=global_min_tran_Y,
     changeCommand=set_global_min_tran_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_min_tran_Y, 0, set_global_min_tran_Y), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_max_tran_Y = cmds.floatSliderGrp(
     label="Global Max Translate (Y)",
     field=True,
@@ -5485,6 +5645,8 @@ slider_global_max_tran_Y = cmds.floatSliderGrp(
     value=global_max_tran_Y,
     changeCommand=set_global_max_tran_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_max_tran_Y, 0, set_global_max_tran_Y), height=20) #new
+cmds.setParent("..")  #new
 
 def set_global_min_tran_Z(value):
     global global_min_tran_Z
@@ -5508,6 +5670,7 @@ def set_global_max_tran_Z(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_min_tran_Z = cmds.floatSliderGrp(
     label="Global Min Translate (Z)",
     field=True,
@@ -5516,7 +5679,10 @@ slider_global_min_tran_Z = cmds.floatSliderGrp(
     value=global_min_tran_Z,
     changeCommand=set_global_min_tran_Z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_min_tran_Z, 0, set_global_min_tran_Z), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_max_tran_Z = cmds.floatSliderGrp(
     label="Global Max Translate (Z)",
     field=True,
@@ -5525,6 +5691,8 @@ slider_global_max_tran_Z = cmds.floatSliderGrp(
     value=global_max_tran_Z,
     changeCommand=set_global_max_tran_Z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_max_tran_Z, 0, set_global_max_tran_Z), height=20) #new
+cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout (sub-tab)
 
@@ -5559,6 +5727,7 @@ def set_global_max_rot_X(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_min_rot_X = cmds.floatSliderGrp(
     label="Global Min Rotation (X)",
     field=True,
@@ -5567,7 +5736,10 @@ slider_global_min_rot_X = cmds.floatSliderGrp(
     value=global_min_rot_X,
     changeCommand=set_global_min_rot_X
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_min_rot_X, 0, set_global_min_rot_X), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_max_rot_X = cmds.floatSliderGrp(
     label="Global Max Rotation (X)",
     field=True,
@@ -5576,6 +5748,8 @@ slider_global_max_rot_X = cmds.floatSliderGrp(
     value=global_max_rot_X,
     changeCommand=set_global_max_rot_X
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_max_rot_X, 0, set_global_max_rot_X), height=20) #new
+cmds.setParent("..")  #new
 
 def set_global_min_rot_Y(value):
     global global_min_rot_Y
@@ -5599,6 +5773,7 @@ def set_global_max_rot_Y(value):
 
     set_undo_redo_and_generate() 
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_min_rot_Y = cmds.floatSliderGrp(
     label="Global Min Rotation (Y)",
     field=True,
@@ -5607,7 +5782,10 @@ slider_global_min_rot_Y = cmds.floatSliderGrp(
     value=global_min_rot_Y,
     changeCommand=set_global_min_rot_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_min_rot_Y, 0, set_global_min_rot_Y), height=20) #new
+cmds.setParent("..")  #new
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_max_rot_Y = cmds.floatSliderGrp(
     label="Global Max Rotation (Y)",
     field=True,
@@ -5616,6 +5794,8 @@ slider_global_max_rot_Y = cmds.floatSliderGrp(
     value=global_max_rot_Y,
     changeCommand=set_global_max_rot_Y
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_max_rot_Y, 0, set_global_max_rot_Y), height=20) #new
+cmds.setParent("..")  #new
 
 def set_global_min_rot_Z(value):
     global global_min_rot_Z
@@ -5639,6 +5819,7 @@ def set_global_max_rot_Z(value):
 
     set_undo_redo_and_generate()
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_min_rot_Z = cmds.floatSliderGrp(
     label="Global Min Rotation (Z)",
     field=True,
@@ -5646,8 +5827,11 @@ slider_global_min_rot_Z = cmds.floatSliderGrp(
     maxValue=180,
     value=global_min_rot_Z,
     changeCommand=set_global_min_rot_Z
-)        
+)       
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_min_rot_Z, 0, set_global_min_rot_Z), height=20) #new
+cmds.setParent("..")  #new 
 
+cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
 slider_global_max_rot_Z = cmds.floatSliderGrp(
     label="Global Max Rotation (Z)",
     field=True,
@@ -5656,6 +5840,8 @@ slider_global_max_rot_Z = cmds.floatSliderGrp(
     value=global_max_rot_Z,
     changeCommand=set_global_max_rot_Z
 )
+cmds.button(label="⌫", command=lambda x: reset_slider(slider_global_max_rot_Z, 0, set_global_max_rot_Z), height=20) #new
+cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout
 cmds.setParent('..')  # end frameLayout (tab)
