@@ -5904,5 +5904,5 @@ cmds.button(label='RE-GENERATE (keeps all previous gens)', command=lambda *args:
 
 #afficher la fenêtre
 cmds.showWindow()
-cmds.window(window, edit=True, widthHeight=(434, 559))
+cmds.window(window, edit=True, widthHeight=(434, 564))
 retab_existing_gens()
