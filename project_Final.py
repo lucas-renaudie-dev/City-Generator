@@ -214,14 +214,6 @@ global_max_rot_Y = 0
 global_min_rot_Z = 0
 global_max_rot_Z = 0
 
-
-
-"""
-global_min_tran_X 
-global_max_tran_X
-...
-"""
-
 #base plane parameters
 hide_base_planes = False
 
@@ -234,8 +226,6 @@ gen_checkbox_mod_indiv_building = {}
 gen_block_size = {}
 gen_block_rot = {}
 gen_checkbox_mod_indiv_block = {}
-#gen_duplicate_size = []
-#gen_duplicate_rot = []
 gen_checkbox_mod_indiv_duplicate = {}
 gen_global_size = []
 gen_global_rot = []
@@ -491,7 +481,6 @@ def regenerate_city(*args):
         global_ran_scale1 = random.uniform(global_min_scale_X, global_max_scale_X)
         global_ran_scale2 = random.uniform(global_min_scale_Y, global_max_scale_Y)
         global_ran_scale3 = random.uniform(global_min_scale_Z, global_max_scale_Z)
-        #gen_duplicate_size = [global_ran_size * global_ran_scale1, global_ran_size * global_ran_scale2, global_ran_size * global_ran_scale3]
         gen_global_size = [global_ran_size * global_ran_scale1, global_ran_size * global_ran_scale2, global_ran_size * global_ran_scale3]
 
         #global translate
@@ -503,7 +492,6 @@ def regenerate_city(*args):
         global_ran_rot1 = random.uniform(global_min_rot_X, global_max_rot_X)
         global_ran_rot2 = random.uniform(global_min_rot_Y, global_max_rot_Y)
         global_ran_rot3 = random.uniform(global_min_rot_Z, global_max_rot_Z)
-        #gen_duplicate_rot = [global_ran_rot1, global_ran_rot2, global_ran_rot3]
         gen_global_rot = [global_ran_rot1, global_ran_rot2, global_ran_rot3]
 
         cmds.scale(global_ran_size * global_ran_scale1, global_ran_size * global_ran_scale2, global_ran_size * global_ran_scale3)
@@ -527,10 +515,10 @@ def regenerate_city(*args):
             },
 
             "duplicateSizes": {
-                "1": gen_duplicate_size,
+                "1": gen_global_size,
             },
             "duplicateRots": {
-                "1": gen_duplicate_rot,
+                "1": gen_global_rot,
             },
             
             "globalSizes": gen_global_size,
@@ -592,9 +580,9 @@ def presets(*args):
         global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
         global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
         global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-        global transform_X, transform_Y, transform_Z
-        global scale_global, scale_X, scale_Y, scale_Z
-        global rotation_X, rotation_Y, rotation_Z
+        global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+        global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+        global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
         global hide_base_planes
     
         shape = "cube"
@@ -646,16 +634,34 @@ def presets(*args):
         block_max_rot_Y = 0
         block_min_rot_Z = 0
         block_max_rot_Z = 0
-        scale_global = 1
-        scale_X = 1
-        scale_Y = 1
-        scale_Z = 1
-        transform_X = 0
-        transform_Y = 0
-        transform_Z = 0
-        rotation_X = 0
-        rotation_Y = 0
-        rotation_Z = 0
+        
+        #global scale parameters
+        global_min_size = 1
+        global_max_size = 1
+
+        global_min_scale_X = 1
+        global_max_scale_X = 1
+        global_min_scale_Y = 1
+        global_max_scale_Y = 1
+        global_min_scale_Z = 1
+        global_max_scale_Z = 1
+
+        #block translate parameters
+        global_min_tran_X = 0
+        global_max_tran_X = 0
+        global_min_tran_Y = 0
+        global_max_tran_Y = 0
+        global_min_tran_Z = 0
+        global_max_tran_Z = 0
+
+        #block rotation parameters
+        global_min_rot_X = 0
+        global_max_rot_X = 0
+        global_min_rot_Y = 0
+        global_max_rot_Y = 0
+        global_min_rot_Z = 0
+        global_max_rot_Z = 0
+
         hide_base_planes = False
 
     def sphere_settings():
@@ -669,9 +675,9 @@ def presets(*args):
         global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
         global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
         global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-        global transform_X, transform_Y, transform_Z
-        global scale_global, scale_X, scale_Y, scale_Z
-        global rotation_X, rotation_Y, rotation_Z
+        global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+        global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+        global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
         global hide_base_planes
     
         shape = "sphere"
@@ -723,16 +729,34 @@ def presets(*args):
         block_max_rot_Y = 0
         block_min_rot_Z = 0
         block_max_rot_Z = 0
-        scale_global = 1
-        scale_X = 1
-        scale_Y = 1
-        scale_Z = 1
-        transform_X = 0
-        transform_Y = 0
-        transform_Z = 0
-        rotation_X = 0
-        rotation_Y = 0
-        rotation_Z = 0
+
+        #global scale parameters
+        global_min_size = 1
+        global_max_size = 1
+
+        global_min_scale_X = 1
+        global_max_scale_X = 1
+        global_min_scale_Y = 1
+        global_max_scale_Y = 1
+        global_min_scale_Z = 1
+        global_max_scale_Z = 1
+
+        #block translate parameters
+        global_min_tran_X = 0
+        global_max_tran_X = 0
+        global_min_tran_Y = 0
+        global_max_tran_Y = 0
+        global_min_tran_Z = 0
+        global_max_tran_Z = 0
+
+        #block rotation parameters
+        global_min_rot_X = 0
+        global_max_rot_X = 0
+        global_min_rot_Y = 0
+        global_max_rot_Y = 0
+        global_min_rot_Z = 0
+        global_max_rot_Z = 0
+
         hide_base_planes = False
 
     def default_city_settings():
@@ -746,9 +770,9 @@ def presets(*args):
         global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
         global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
         global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-        global transform_X, transform_Y, transform_Z
-        global scale_global, scale_X, scale_Y, scale_Z
-        global rotation_X, rotation_Y, rotation_Z
+        global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+        global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+        global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
         global hide_base_planes
         
         #shape settings
@@ -817,17 +841,32 @@ def presets(*args):
         block_min_rot_Z = 0
         block_max_rot_Z = 0
 
-        #global transform parameters
-        scale_global = 1
-        scale_X = 1
-        scale_Y = 1
-        scale_Z = 1
-        transform_X = 0
-        transform_Y = 0
-        transform_Z = 0
-        rotation_X = 0
-        rotation_Y = 0
-        rotation_Z = 0
+        #global scale parameters
+        global_min_size = 1
+        global_max_size = 1
+
+        global_min_scale_X = 1
+        global_max_scale_X = 1
+        global_min_scale_Y = 1
+        global_max_scale_Y = 1
+        global_min_scale_Z = 1
+        global_max_scale_Z = 1
+
+        #block translate parameters
+        global_min_tran_X = 0
+        global_max_tran_X = 0
+        global_min_tran_Y = 0
+        global_max_tran_Y = 0
+        global_min_tran_Z = 0
+        global_max_tran_Z = 0
+
+        #block rotation parameters
+        global_min_rot_X = 0
+        global_max_rot_X = 0
+        global_min_rot_Y = 0
+        global_max_rot_Y = 0
+        global_min_rot_Z = 0
+        global_max_rot_Z = 0
 
         #base plane parameters
         hide_base_planes = False
@@ -843,9 +882,9 @@ def presets(*args):
         global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
         global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
         global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-        global transform_X, transform_Y, transform_Z
-        global scale_global, scale_X, scale_Y, scale_Z
-        global rotation_X, rotation_Y, rotation_Z
+        global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+        global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+        global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
         global hide_base_planes
         
         shape = "sphere"
@@ -897,16 +936,34 @@ def presets(*args):
         block_max_rot_Y = 0
         block_min_rot_Z = 0
         block_max_rot_Z = 0
-        scale_global = 1
-        scale_X = 1
-        scale_Y = 1
-        scale_Z = 1
-        transform_X = 0
-        transform_Y = 0
-        transform_Z = 0
-        rotation_X = 0
-        rotation_Y = 0
-        rotation_Z = 0
+        
+        #global scale parameters
+        global_min_size = 1
+        global_max_size = 1
+
+        global_min_scale_X = 1
+        global_max_scale_X = 1
+        global_min_scale_Y = 1
+        global_max_scale_Y = 1
+        global_min_scale_Z = 1
+        global_max_scale_Z = 1
+
+        #block translate parameters
+        global_min_tran_X = 0
+        global_max_tran_X = 0
+        global_min_tran_Y = 0
+        global_max_tran_Y = 0
+        global_min_tran_Z = 0
+        global_max_tran_Z = 0
+
+        #block rotation parameters
+        global_min_rot_X = 0
+        global_max_rot_X = 0
+        global_min_rot_Y = 0
+        global_max_rot_Y = 0
+        global_min_rot_Z = 0
+        global_max_rot_Z = 0
+
         hide_base_planes = True
 
     def small_clouds_settings2():
@@ -920,9 +977,9 @@ def presets(*args):
         global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
         global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
         global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-        global transform_X, transform_Y, transform_Z
-        global scale_global, scale_X, scale_Y, scale_Z
-        global rotation_X, rotation_Y, rotation_Z
+        global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+        global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+        global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
         global hide_base_planes
     
         shape = "sphere"
@@ -974,16 +1031,34 @@ def presets(*args):
         block_max_rot_Y = 0
         block_min_rot_Z = 0
         block_max_rot_Z = 0
-        scale_global = 1
-        scale_X = 1
-        scale_Y = 1
-        scale_Z = 1
-        transform_X = 0
-        transform_Y = 0
-        transform_Z = 0
-        rotation_X = 0
-        rotation_Y = 0
-        rotation_Z = 0
+        
+        #global scale parameters
+        global_min_size = 1
+        global_max_size = 1
+
+        global_min_scale_X = 1
+        global_max_scale_X = 1
+        global_min_scale_Y = 1
+        global_max_scale_Y = 1
+        global_min_scale_Z = 1
+        global_max_scale_Z = 1
+
+        #block translate parameters
+        global_min_tran_X = 0
+        global_max_tran_X = 0
+        global_min_tran_Y = 0
+        global_max_tran_Y = 0
+        global_min_tran_Z = 0
+        global_max_tran_Z = 0
+
+        #block rotation parameters
+        global_min_rot_X = 0
+        global_max_rot_X = 0
+        global_min_rot_Y = 0
+        global_max_rot_Y = 0
+        global_min_rot_Z = 0
+        global_max_rot_Z = 0
+
         hide_base_planes = True
 
     def rain_settings():
@@ -997,9 +1072,9 @@ def presets(*args):
         global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
         global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
         global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-        global transform_X, transform_Y, transform_Z
-        global scale_global, scale_X, scale_Y, scale_Z
-        global rotation_X, rotation_Y, rotation_Z
+        global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+        global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+        global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
         global hide_base_planes
 
         shape = "sphere"
@@ -1051,16 +1126,34 @@ def presets(*args):
         block_max_rot_Y = 0
         block_min_rot_Z = 0
         block_max_rot_Z = 0
-        scale_global = 1
-        scale_X = 1
-        scale_Y = 1
-        scale_Z = 1
-        transform_X = 0
-        transform_Y = 0
-        transform_Z = 0
-        rotation_X = 0
-        rotation_Y = 0
-        rotation_Z = 0
+        
+        #global scale parameters
+        global_min_size = 1
+        global_max_size = 1
+
+        global_min_scale_X = 1
+        global_max_scale_X = 1
+        global_min_scale_Y = 1
+        global_max_scale_Y = 1
+        global_min_scale_Z = 1
+        global_max_scale_Z = 1
+
+        #block translate parameters
+        global_min_tran_X = 0
+        global_max_tran_X = 0
+        global_min_tran_Y = 0
+        global_max_tran_Y = 0
+        global_min_tran_Z = 0
+        global_max_tran_Z = 0
+
+        #block rotation parameters
+        global_min_rot_X = 0
+        global_max_rot_X = 0
+        global_min_rot_Y = 0
+        global_max_rot_Y = 0
+        global_min_rot_Z = 0
+        global_max_rot_Z = 0
+
         hide_base_planes = True
 
     def cyber_particles_settings():
@@ -1074,9 +1167,9 @@ def presets(*args):
         global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
         global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
         global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-        global transform_X, transform_Y, transform_Z
-        global scale_global, scale_X, scale_Y, scale_Z
-        global rotation_X, rotation_Y, rotation_Z
+        global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+        global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+        global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
         global hide_base_planes
 
         shape = "cube"
@@ -1128,16 +1221,34 @@ def presets(*args):
         block_max_rot_Y = 0
         block_min_rot_Z = 0
         block_max_rot_Z = 0
-        scale_global = 1
-        scale_X = 1
-        scale_Y = 1
-        scale_Z = 1
-        transform_X = 0
-        transform_Y = 0
-        transform_Z = 0
-        rotation_X = 0
-        rotation_Y = 0
-        rotation_Z = 0
+        
+        #global scale parameters
+        global_min_size = 1
+        global_max_size = 1
+
+        global_min_scale_X = 1
+        global_max_scale_X = 1
+        global_min_scale_Y = 1
+        global_max_scale_Y = 1
+        global_min_scale_Z = 1
+        global_max_scale_Z = 1
+
+        #block translate parameters
+        global_min_tran_X = 0
+        global_max_tran_X = 0
+        global_min_tran_Y = 0
+        global_max_tran_Y = 0
+        global_min_tran_Z = 0
+        global_max_tran_Z = 0
+
+        #block rotation parameters
+        global_min_rot_X = 0
+        global_max_rot_X = 0
+        global_min_rot_Y = 0
+        global_max_rot_Y = 0
+        global_min_rot_Z = 0
+        global_max_rot_Z = 0
+
         hide_base_planes = True
 
     def cyber_planes_settings():
@@ -1151,9 +1262,9 @@ def presets(*args):
         global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
         global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
         global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-        global transform_X, transform_Y, transform_Z
-        global scale_global, scale_X, scale_Y, scale_Z
-        global rotation_X, rotation_Y, rotation_Z
+        global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+        global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+        global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
         global hide_base_planes
 
         shape = "cube"
@@ -1205,16 +1316,34 @@ def presets(*args):
         block_max_rot_Y = 0
         block_min_rot_Z = 0
         block_max_rot_Z = 0
-        scale_global = 1
-        scale_X = 1
-        scale_Y = 1
-        scale_Z = 1
-        transform_X = 0
-        transform_Y = 0
-        transform_Z = 0
-        rotation_X = 0
-        rotation_Y = 0
-        rotation_Z = 0
+        
+        #global scale parameters
+        global_min_size = 1
+        global_max_size = 1
+
+        global_min_scale_X = 1
+        global_max_scale_X = 1
+        global_min_scale_Y = 1
+        global_max_scale_Y = 1
+        global_min_scale_Z = 1
+        global_max_scale_Z = 1
+
+        #block translate parameters
+        global_min_tran_X = 0
+        global_max_tran_X = 0
+        global_min_tran_Y = 0
+        global_max_tran_Y = 0
+        global_min_tran_Z = 0
+        global_max_tran_Z = 0
+
+        #block rotation parameters
+        global_min_rot_X = 0
+        global_max_rot_X = 0
+        global_min_rot_Y = 0
+        global_max_rot_Y = 0
+        global_min_rot_Z = 0
+        global_max_rot_Z = 0
+
         hide_base_planes = True
 
     def small_town_settings():
@@ -1228,9 +1357,9 @@ def presets(*args):
         global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
         global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
         global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-        global transform_X, transform_Y, transform_Z
-        global scale_global, scale_X, scale_Y, scale_Z
-        global rotation_X, rotation_Y, rotation_Z
+        global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+        global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+        global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
         global hide_base_planes
 
         #shape settings
@@ -1299,17 +1428,32 @@ def presets(*args):
         block_min_rot_Z = 0
         block_max_rot_Z = 0
 
-        #global transform parameters
-        scale_global = 1
-        scale_X = 1
-        scale_Y = 1
-        scale_Z = 1
-        transform_X = 0
-        transform_Y = 0
-        transform_Z = 0
-        rotation_X = 0
-        rotation_Y = 0
-        rotation_Z = 0
+        #global scale parameters
+        global_min_size = 1
+        global_max_size = 1
+
+        global_min_scale_X = 1
+        global_max_scale_X = 1
+        global_min_scale_Y = 1
+        global_max_scale_Y = 1
+        global_min_scale_Z = 1
+        global_max_scale_Z = 1
+
+        #block translate parameters
+        global_min_tran_X = 0
+        global_max_tran_X = 0
+        global_min_tran_Y = 0
+        global_max_tran_Y = 0
+        global_min_tran_Z = 0
+        global_max_tran_Z = 0
+
+        #block rotation parameters
+        global_min_rot_X = 0
+        global_max_rot_X = 0
+        global_min_rot_Y = 0
+        global_max_rot_Y = 0
+        global_min_rot_Z = 0
+        global_max_rot_Z = 0
 
         #base plane parameters
         hide_base_planes = False
@@ -1325,9 +1469,9 @@ def presets(*args):
         global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
         global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
         global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-        global transform_X, transform_Y, transform_Z
-        global scale_global, scale_X, scale_Y, scale_Z
-        global rotation_X, rotation_Y, rotation_Z
+        global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+        global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+        global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
         global hide_base_planes
 
         shape = "cube"
@@ -1379,16 +1523,34 @@ def presets(*args):
         block_max_rot_Y = 0
         block_min_rot_Z = 0
         block_max_rot_Z = 0
-        scale_global = 1
-        scale_X = 1
-        scale_Y = 1
-        scale_Z = 1
-        transform_X = 0
-        transform_Y = 0
-        transform_Z = 0
-        rotation_X = 0
-        rotation_Y = 0
-        rotation_Z = 0
+        
+        #global scale parameters
+        global_min_size = 1
+        global_max_size = 1
+
+        global_min_scale_X = 1
+        global_max_scale_X = 1
+        global_min_scale_Y = 1
+        global_max_scale_Y = 1
+        global_min_scale_Z = 1
+        global_max_scale_Z = 1
+
+        #block translate parameters
+        global_min_tran_X = 0
+        global_max_tran_X = 0
+        global_min_tran_Y = 0
+        global_max_tran_Y = 0
+        global_min_tran_Z = 0
+        global_max_tran_Z = 0
+
+        #block rotation parameters
+        global_min_rot_X = 0
+        global_max_rot_X = 0
+        global_min_rot_Y = 0
+        global_max_rot_Y = 0
+        global_min_rot_Z = 0
+        global_max_rot_Z = 0
+
         hide_base_planes = False
     
     def dystopian1_settings():
@@ -1402,9 +1564,9 @@ def presets(*args):
         global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
         global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
         global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-        global transform_X, transform_Y, transform_Z
-        global scale_global, scale_X, scale_Y, scale_Z
-        global rotation_X, rotation_Y, rotation_Z
+        global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+        global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+        global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
         global hide_base_planes
     
         shape = "cube"
@@ -1456,16 +1618,34 @@ def presets(*args):
         block_max_rot_Y = 0
         block_min_rot_Z = 0
         block_max_rot_Z = 0
-        scale_global = 1
-        scale_X = 1
-        scale_Y = 1
-        scale_Z = 1
-        transform_X = 0
-        transform_Y = 0
-        transform_Z = 0
-        rotation_X = 0
-        rotation_Y = 0
-        rotation_Z = 0
+        
+        #global scale parameters
+        global_min_size = 1
+        global_max_size = 1
+
+        global_min_scale_X = 1
+        global_max_scale_X = 1
+        global_min_scale_Y = 1
+        global_max_scale_Y = 1
+        global_min_scale_Z = 1
+        global_max_scale_Z = 1
+
+        #block translate parameters
+        global_min_tran_X = 0
+        global_max_tran_X = 0
+        global_min_tran_Y = 0
+        global_max_tran_Y = 0
+        global_min_tran_Z = 0
+        global_max_tran_Z = 0
+
+        #block rotation parameters
+        global_min_rot_X = 0
+        global_max_rot_X = 0
+        global_min_rot_Y = 0
+        global_max_rot_Y = 0
+        global_min_rot_Z = 0
+        global_max_rot_Z = 0
+
         hide_base_planes = False
 
     def dystopian2_settings():
@@ -1479,9 +1659,9 @@ def presets(*args):
         global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
         global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
         global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-        global transform_X, transform_Y, transform_Z
-        global scale_global, scale_X, scale_Y, scale_Z
-        global rotation_X, rotation_Y, rotation_Z
+        global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+        global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+        global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
         global hide_base_planes
     
         shape = "cube"
@@ -1533,16 +1713,34 @@ def presets(*args):
         block_max_rot_Y = 0
         block_min_rot_Z = 0
         block_max_rot_Z = 0
-        scale_global = 1
-        scale_X = 1
-        scale_Y = 1
-        scale_Z = 1
-        transform_X = 0
-        transform_Y = 0
-        transform_Z = 0
-        rotation_X = 0
-        rotation_Y = 0
-        rotation_Z = 0
+        
+        #global scale parameters
+        global_min_size = 1
+        global_max_size = 1
+
+        global_min_scale_X = 1
+        global_max_scale_X = 1
+        global_min_scale_Y = 1
+        global_max_scale_Y = 1
+        global_min_scale_Z = 1
+        global_max_scale_Z = 1
+
+        #block translate parameters
+        global_min_tran_X = 0
+        global_max_tran_X = 0
+        global_min_tran_Y = 0
+        global_max_tran_Y = 0
+        global_min_tran_Z = 0
+        global_max_tran_Z = 0
+
+        #block rotation parameters
+        global_min_rot_X = 0
+        global_max_rot_X = 0
+        global_min_rot_Y = 0
+        global_max_rot_Y = 0
+        global_min_rot_Z = 0
+        global_max_rot_Z = 0
+
         hide_base_planes = False
 
     def dystopian3_settings3():
@@ -1556,9 +1754,9 @@ def presets(*args):
         global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
         global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
         global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-        global transform_X, transform_Y, transform_Z
-        global scale_global, scale_X, scale_Y, scale_Z
-        global rotation_X, rotation_Y, rotation_Z
+        global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+        global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+        global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
         global hide_base_planes
 
         shape = "cube"
@@ -1610,16 +1808,34 @@ def presets(*args):
         block_max_rot_Y = 0
         block_min_rot_Z = 0
         block_max_rot_Z = 0
-        scale_global = 1
-        scale_X = 1
-        scale_Y = 1
-        scale_Z = 1
-        transform_X = 0
-        transform_Y = 0
-        transform_Z = 0
-        rotation_X = 0
-        rotation_Y = 0
-        rotation_Z = 0
+        
+        #global scale parameters
+        global_min_size = 1
+        global_max_size = 1
+
+        global_min_scale_X = 1
+        global_max_scale_X = 1
+        global_min_scale_Y = 1
+        global_max_scale_Y = 1
+        global_min_scale_Z = 1
+        global_max_scale_Z = 1
+
+        #block translate parameters
+        global_min_tran_X = 0
+        global_max_tran_X = 0
+        global_min_tran_Y = 0
+        global_max_tran_Y = 0
+        global_min_tran_Z = 0
+        global_max_tran_Z = 0
+
+        #block rotation parameters
+        global_min_rot_X = 0
+        global_max_rot_X = 0
+        global_min_rot_Y = 0
+        global_max_rot_Y = 0
+        global_min_rot_Z = 0
+        global_max_rot_Z = 0
+
         hide_base_planes = False
 
     if args[0] == "Cube":
@@ -1872,9 +2088,9 @@ def set_to_copied_settings(*args):
     global block_min_scale_X, block_max_scale_X, block_min_scale_Y, block_max_scale_Y, block_min_scale_Z, block_max_scale_Z
     global block_min_rot_X, block_max_rot_X, block_min_rot_Y, block_max_rot_Y, block_min_rot_Z, block_max_rot_Z
     global block_min_tran_X, block_max_tran_X, block_min_tran_Y, block_max_tran_Y, block_min_tran_Z, block_max_tran_Z
-    global transform_X, transform_Y, transform_Z
-    global scale_global, scale_X, scale_Y, scale_Z
-    global rotation_X, rotation_Y, rotation_Z
+    global global_min_size, global_max_size, global_min_scale_X, global_max_scale_X, global_min_scale_Y, global_max_scale_Y, global_min_scale_Z, global_max_scale_Z
+    global global_min_tran_X, global_max_tran_X, global_min_tran_Y, global_max_tran_Y, global_min_tran_Z, global_max_tran_Z
+    global global_min_rot_X, global_max_rot_X, global_min_rot_Y, global_max_rot_Y, global_min_rot_Z, global_max_rot_Z
     global hide_base_planes
 
     try:
