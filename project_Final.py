@@ -4064,6 +4064,10 @@ def reset_slider(slider_name, default_value, function_name, *args):
     cmds.floatSliderGrp(slider_name, e=True, value=default_value)
     function_name(default_value)
 
+def reset_int_slider(slider_name, default_value, function_name, *args):
+    cmds.intSliderGrp(slider_name, e=True, value=default_value)
+    function_name(default_value)
+
 
 
 #shape --------------------------------------
