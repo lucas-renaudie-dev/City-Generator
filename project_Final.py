@@ -2246,56 +2246,15 @@ def create_generation_tab(gen_num):
  
     # global transform
     cmds.frameLayout(
-        label="Global Transform",
+        label="Transform",
         collapsable=True,
         collapse=True,        # set False if you want it open by default
         bgc=sub_color,
         mw=5, mh=5
     )
 
-    # translate global ---------------------------------------
-    cmds.columnLayout(adj=True, rowSpacing=0)   # <– controls spacing between frames
-    cmds.frameLayout(
-        label="Translate",
-        collapsable=True,
-        collapse=True,        # set False if you want it open by default
-        bgc=subsub_color,
-        mw=5, mh=5
-    )
-
-    gen_slider_tranX_global[gen_num] = cmds.floatSliderGrp(
-        label="Translate X",
-        field=True,
-        minValue=-100,
-        maxValue=100,
-        value=settings["global_tranX"],
-        changeCommand=lambda v, g=gen_num: update_gen_tranX(g, v),
-        columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
-    )
-
-    gen_slider_tranY_global[gen_num] = cmds.floatSliderGrp(
-        label="Translate Y",
-        field=True,
-        minValue=-100,
-        maxValue=100,
-        value=settings["global_tranY"],
-        changeCommand=lambda v, g=gen_num: update_gen_tranY(g, v),
-        columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
-    )
-
-    gen_slider_tranZ_global[gen_num] = cmds.floatSliderGrp(
-        label="Translate Z",
-        field=True,
-        minValue=-100,
-        maxValue=100,
-        value=settings["global_tranZ"],
-        changeCommand=lambda v, g=gen_num: update_gen_tranZ(g, v),
-        columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
-    )
-
-    cmds.setParent('..') #sub tab
-
     # scale global ----------------------------------------- 
+    cmds.columnLayout(adj=True, rowSpacing=0)   # <– controls spacing between frames
     cmds.frameLayout(
         label="Scale",
         collapsable=True,
@@ -2304,6 +2263,7 @@ def create_generation_tab(gen_num):
         mw=5, mh=5
     )
     
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_size_global[gen_num] = cmds.floatSliderGrp(
         label="Size",
         field=True,
@@ -2313,7 +2273,10 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: update_gen_scale_global(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_size_global[gen_num], 1, update_gen_scale_global), height=20) #new
+    cmds.setParent("..")  #new
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_scaleX_global[gen_num] = cmds.floatSliderGrp(
         label="Scale X",
         field=True,
@@ -2323,7 +2286,10 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: update_gen_scaleX(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_scaleX_global[gen_num], 1, update_gen_scaleX), height=20) #new
+    cmds.setParent("..")  #new
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_scaleY_global[gen_num] = cmds.floatSliderGrp(
         label="Scale Y",
         field=True,
@@ -2333,7 +2299,10 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: update_gen_scaleY(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_scaleY_global[gen_num], 1, update_gen_scaleY), height=20) #new
+    cmds.setParent("..")  #new
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_scaleZ_global[gen_num] = cmds.floatSliderGrp(
         label="Scale Z",
         field=True,
@@ -2343,8 +2312,60 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: update_gen_scaleZ(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_scaleZ_global[gen_num], 1, update_gen_scaleZ), height=20) #new
+    cmds.setParent("..")  #new
 
     cmds.setParent('..')
+
+    # translate global ---------------------------------------
+    cmds.frameLayout(
+        label="Translate",
+        collapsable=True,
+        collapse=True,        # set False if you want it open by default
+        bgc=subsub_color,
+        mw=5, mh=5
+    )
+
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
+    gen_slider_tranX_global[gen_num] = cmds.floatSliderGrp(
+        label="Translate X",
+        field=True,
+        minValue=-100,
+        maxValue=100,
+        value=settings["global_tranX"],
+        changeCommand=lambda v, g=gen_num: update_gen_tranX(g, v),
+        columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
+    )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_tranX_global[gen_num], 0, update_gen_tranX), height=20) #new
+    cmds.setParent("..")  #new
+
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
+    gen_slider_tranY_global[gen_num] = cmds.floatSliderGrp(
+        label="Translate Y",
+        field=True,
+        minValue=-100,
+        maxValue=100,
+        value=settings["global_tranY"],
+        changeCommand=lambda v, g=gen_num: update_gen_tranY(g, v),
+        columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
+    )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_tranY_global[gen_num], 0, update_gen_tranY), height=20) #new
+    cmds.setParent("..")  #new
+
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
+    gen_slider_tranZ_global[gen_num] = cmds.floatSliderGrp(
+        label="Translate Z",
+        field=True,
+        minValue=-100,
+        maxValue=100,
+        value=settings["global_tranZ"],
+        changeCommand=lambda v, g=gen_num: update_gen_tranZ(g, v),
+        columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
+    )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_tranZ_global[gen_num], 0, update_gen_tranZ), height=20) #new
+    cmds.setParent("..")  #new
+
+    cmds.setParent('..') #sub tab   
 
     # rotate global ----------------------------------------- 
     cmds.frameLayout(
@@ -2355,6 +2376,7 @@ def create_generation_tab(gen_num):
         mw=5, mh=5
     )
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_rotX_global[gen_num] = cmds.floatSliderGrp(
         label="Rotate X",
         field=True,
@@ -2364,7 +2386,10 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: update_gen_rotX(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_rotX_global[gen_num], 0, update_gen_rotX), height=20) #new
+    cmds.setParent("..")  #new
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_rotY_global[gen_num] = cmds.floatSliderGrp(
         label="Rotate Y",
         field=True,
@@ -2374,7 +2399,10 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: update_gen_rotY(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_rotY_global[gen_num], 0, update_gen_rotY), height=20) #new
+    cmds.setParent("..")  #new
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_rotZ_global[gen_num] = cmds.floatSliderGrp(
         label="Rotate Z",
         field=True,
@@ -2384,6 +2412,8 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: update_gen_rotZ(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_rotZ_global[gen_num], 0, update_gen_rotZ), height=20) #new
+    cmds.setParent("..")  #new
 
     cmds.setParent('..') #sub tab
     cmds.setParent('..') #tab
@@ -2436,6 +2466,7 @@ def create_generation_tab(gen_num):
     )    
 
     #iterations
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_dup_iterations[gen_num] = cmds.intSliderGrp(
         label="Iterations",
         field=True,
@@ -2445,6 +2476,8 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: dup_iterations(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_int_slider(gen_num, gen_slider_dup_iterations[gen_num], 1, dup_iterations), height=20) #new
+    cmds.setParent("..")  #new
 
     #per prior duplicate checkbox
     """
@@ -2494,12 +2527,22 @@ def create_generation_tab(gen_num):
 
     cmds.setParent('..')
 
+    #transform
+    cmds.frameLayout(
+        label="Transform",
+        collapsable=True,
+        collapse=True,        # set False if you want it open by default
+        bgc=sub_color,
+        mw=5, mh=5
+    )
+
     #scale
+    cmds.columnLayout(adj=True, rowSpacing=0)   # <– controls spacing between frames
     cmds.frameLayout(
         label="Scale",
         collapsable=True,
         collapse=True,        # set False if you want it open by default
-        bgc=sub_color,
+        bgc=subsub_color,
         mw=5, mh=5
     )
 
@@ -2523,6 +2566,7 @@ def create_generation_tab(gen_num):
     cmds.separator(style="none")
     cmds.setParent('..')
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_dup_size[gen_num] = cmds.floatSliderGrp(
         label="Size",
         field=True,
@@ -2532,7 +2576,10 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: dup_size(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_dup_size[gen_num], 1, dup_size), height=20) #new
+    cmds.setParent("..")  #new
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_dup_scaleX[gen_num] = cmds.floatSliderGrp(
         label="Scale (X)",
         field=True,
@@ -2542,7 +2589,10 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: dup_scale_x(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_dup_scaleX[gen_num], 1, dup_scale_x), height=20) #new
+    cmds.setParent("..")  #new
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_dup_scaleY[gen_num] = cmds.floatSliderGrp(
         label="Scale (Y)",
         field=True,
@@ -2552,7 +2602,10 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: dup_scale_y(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_dup_scaleY[gen_num], 1, dup_scale_y), height=20) #new
+    cmds.setParent("..")  #new
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_dup_scaleZ[gen_num] = cmds.floatSliderGrp(
         label="Scale (Z)",
         field=True,
@@ -2562,6 +2615,8 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: dup_scale_z(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_dup_scaleZ[gen_num], 1, dup_scale_z), height=20) #new
+    cmds.setParent("..")  #new
 
     cmds.setParent('..') #tab
 
@@ -2570,7 +2625,7 @@ def create_generation_tab(gen_num):
         label="Translate",
         collapsable=True,
         collapse=True,        # set False if you want it open by default
-        bgc=sub_color,
+        bgc=subsub_color,
         mw=5, mh=5
     )
 
@@ -2584,6 +2639,7 @@ def create_generation_tab(gen_num):
     cmds.separator(style="none")
     cmds.setParent('..')
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_dup_tranX[gen_num] = cmds.floatSliderGrp(
         label="Translate (X)",
         field=True,
@@ -2593,7 +2649,10 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: dup_tran_x(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_dup_tranX[gen_num], 0, dup_tran_x), height=20) #new  
+    cmds.setParent("..")  #new
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_dup_tranY[gen_num] = cmds.floatSliderGrp(
         label="Translate (Y)",
         field=True,
@@ -2603,7 +2662,10 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: dup_tran_y(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_dup_tranY[gen_num], 0, dup_tran_y), height=20) #new
+    cmds.setParent("..")  #new
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_dup_tranZ[gen_num] = cmds.floatSliderGrp(
         label="Translate (Z)",
         field=True,
@@ -2613,6 +2675,8 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: dup_tran_z(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_dup_tranZ[gen_num], 0, dup_tran_z), height=20) #new
+    cmds.setParent("..")  #new
 
     cmds.setParent('..') #tab
 
@@ -2621,7 +2685,7 @@ def create_generation_tab(gen_num):
         label="Rotate",
         collapsable=True,
         collapse=True,        # set False if you want it open by default
-        bgc=sub_color,
+        bgc=subsub_color,
         mw=5, mh=5
     )
 
@@ -2635,6 +2699,7 @@ def create_generation_tab(gen_num):
     cmds.separator(style="none")
     cmds.setParent('..')
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_dup_rotX[gen_num] = cmds.floatSliderGrp(
         label="Rotate (X)",
         field=True,
@@ -2644,7 +2709,10 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: dup_rot_x(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_dup_rotX[gen_num], 0, dup_rot_x), height=20) #new
+    cmds.setParent("..")  #new
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_dup_rotY[gen_num] = cmds.floatSliderGrp(
         label="Rotate (Y)",
         field=True,
@@ -2654,7 +2722,10 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: dup_rot_y(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_dup_rotY[gen_num], 0, dup_rot_y), height=20) #new
+    cmds.setParent("..")  #new
 
+    cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
     gen_slider_dup_rotZ[gen_num] = cmds.floatSliderGrp(
         label="Rotate (Z)",
         field=True,
@@ -2664,8 +2735,12 @@ def create_generation_tab(gen_num):
         changeCommand=lambda v, g=gen_num: dup_rot_z(g, v),
         columnWidth=[(1, 100), (2, 100), (3, 50)]  # optional: adjust label, slider, field widths
     )
+    cmds.button(label="⌫", command=lambda x: reset_gen_slider(gen_num, gen_slider_dup_rotZ[gen_num], 0, dup_rot_z), height=20) #new
+    cmds.setParent("..")  #new  
 
+    cmds.setParent('..') #sub tab
     cmds.setParent('..') #tab
+    cmds.setParent('..')
 
     cmds.columnLayout(adj=True, columnAlign="center")
     cmds.button(label="Reset Duplicate Settings", command=lambda g: reset_duplicate_settings(gen_num), bgc=sub_color)
@@ -2677,12 +2752,14 @@ def create_generation_tab(gen_num):
 
 
     # MIRROR SECTION --------------------------------------------------------------------------------------
+    """
     cmds.separator(height=5, style="none")  # just blank space
     cmds.separator(height=20, style="single")  # just blank space
 
     cmds.text(label=" Mirror", align="left", font="boldLabelFont")
     cmds.separator(height=10, style="none")
-
+    """
+    
     #modify individual buildings (translate/rotate/scale)
     #modify buildings per block (translate/rotate/scale)
 
@@ -3058,6 +3135,14 @@ def reset_duplicate_settings(gen_num):
     dup_rot_x(gen_num, 0)
     dup_rot_y(gen_num, 0)
     dup_rot_z(gen_num, 0)
+
+def reset_gen_slider(gen_num, slider_name, default_value, function_name, *args):
+    cmds.floatSliderGrp(slider_name, e=True, value=default_value)
+    function_name(gen_num, default_value)
+
+def reset_gen_int_slider(gen_num, slider_name, default_value, function_name, *args):
+    cmds.intSliderGrp(slider_name, e=True, value=default_value)
+    function_name(gen_num, default_value)
 
 
 
@@ -4614,7 +4699,7 @@ slider_min_num_buildings = cmds.intSliderGrp(
     value=min_num_buildings,
     changeCommand=set_min_num_buildings
 )
-cmds.button(label="⌫", command=lambda x: reset_slider(slider_min_num_buildings, 16, set_min_num_buildings), height=20) #new
+cmds.button(label="⌫", command=lambda x: reset_int_slider(slider_min_num_buildings, 16, set_min_num_buildings), height=20) #new
 cmds.setParent("..")  #new
 
 def set_max_num_buildings(value):
@@ -4638,7 +4723,7 @@ slider_max_num_buildings = cmds.intSliderGrp(
     value=max_num_buildings,
     changeCommand=set_max_num_buildings
 )
-cmds.button(label="⌫", command=lambda x: reset_slider(slider_max_num_buildings, 200, set_max_num_buildings), height=20) #new
+cmds.button(label="⌫", command=lambda x: reset_int_slider(slider_max_num_buildings, 16, set_max_num_buildings), height=20) #new
 cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout
@@ -4674,7 +4759,7 @@ slider_num_blocks_x = cmds.intSliderGrp(
     value=num_blocks_x,
     changeCommand=set_num_blocks_x
 )
-cmds.button(label="⌫", command=lambda x: reset_slider(slider_num_blocks_x, 3, set_num_blocks_x), height=20) #new
+cmds.button(label="⌫", command=lambda x: reset_int_slider(slider_num_blocks_x, 3, set_num_blocks_x), height=20) #new
 cmds.setParent("..")  #new
 
 cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
@@ -4686,7 +4771,7 @@ slider_num_blocks_z = cmds.intSliderGrp(
     value=num_blocks_z,
     changeCommand=set_num_blocks_z
 )
-cmds.button(label="⌫", command=lambda x: reset_slider(slider_num_blocks_z, 3, set_num_blocks_z), height=20) #new
+cmds.button(label="⌫", command=lambda x: reset_int_slider(slider_num_blocks_z, 3, set_num_blocks_z), height=20) #new
 cmds.setParent("..")  #new
 
 cmds.setParent('..')  # end frameLayout
@@ -4723,7 +4808,7 @@ slider_subdiv_w = cmds.intSliderGrp(
     value=subdiv_w,
     changeCommand=set_subdiv_w
 )
-cmds.button(label="⌫", command=lambda x: reset_slider(slider_subdiv_w, 4, set_subdiv_w), height=20) #new
+cmds.button(label="⌫", command=lambda x: reset_int_slider(slider_subdiv_w, 4, set_subdiv_w), height=20) #new
 cmds.setParent("..")  #new
 
 cmds.rowLayout(numberOfColumns=2, columnWidth2=(250, 80), adjustableColumn=1) #new
@@ -4735,7 +4820,7 @@ slider_subdiv_h = cmds.intSliderGrp(
     value=subdiv_h,
     changeCommand=set_subdiv_h
 )
-cmds.button(label="⌫", command=lambda x: reset_slider(slider_subdiv_h, 4, set_subdiv_h), height=20) #new
+cmds.button(label="⌫", command=lambda x: reset_int_slider(slider_subdiv_h, 4, set_subdiv_h), height=20) #new
 cmds.setParent("..")  #new
 
 def set_block_size_x(value):
